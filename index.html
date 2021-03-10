@@ -9,7 +9,7 @@
     <script type="text/javascript">
         function myFunction() {
             var str = document.getElementById("directions").value;
-            document.getElementById("demo").innerHTML = str;
+            document.getElementById("output").innerHTML = str;
         }
     </script>
 </head>
@@ -23,9 +23,10 @@
     <textarea id="directions" name="directions" rows="10" cols="30"> </textarea>
     <br>
     <button type="button" onclick="myFunction()"> Translate </button>
-
-
-    <p id="demo">this is it!!</p>
+    <br>
+    <label for="output">Translated Directions:<br></label>
+    <br>
+    <textarea id="output" name="output" rows="10" cols="30" readonly></textarea>
 
     <a href="https://qfreeaccountssjc1.az1.qualtrics.com/jfe/form/SV_03tW4SsIAZl57dY"><br>Please provide feedback
         here.</a>
