@@ -6,11 +6,15 @@
     <title>GatorComm</title>
     <link href="styles/style.css" rel="stylesheet" />
 
-    <script type="text/javascript">
+    <script type="text/javascript" src="Node.js">
         function myFunction() {
             var str = document.getElementById("directions").value;
             document.getElementById("output").innerHTML = str;
         }
+    </script>
+
+
+
     </script>
 </head>
 
@@ -18,15 +22,18 @@
     <h1>Gator Communications</h1>
 
     <img src="images/campus.jpg" alt="Image of Campus">
-
+    <br>
     <label for="directions">Input Directions:<br></label>
     <textarea id="directions" name="directions" rows="10" cols="30"> </textarea>
     <br>
     <button type="button" onclick="myFunction()"> Translate </button>
     <br>
+    <br>
     <label for="output">Translated Directions:<br></label>
     <br>
     <textarea id="output" name="output" rows="10" cols="30" readonly></textarea>
+    <h6>How would you rate this translation?</h6>
+
 
     <a href="https://qfreeaccountssjc1.az1.qualtrics.com/jfe/form/SV_03tW4SsIAZl57dY"><br>Please provide feedback
         here.</a>
