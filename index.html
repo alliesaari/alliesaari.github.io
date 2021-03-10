@@ -13,19 +13,22 @@
     <img src="images/campus.jpg" alt="Image of Campus">
 
     <label for="directions">Input Directions:<br></label>
-    <textarea id="directions" name="directions" rows="5" cols="5"> </textarea>
+    <textarea id="directions" name="directions" rows="20" cols="30"> </textarea>
 
     <button type="button" onclick="translate()">
         Translate!<br>
     </button>
-
-
-
+    <script>
+        function translate() {
+            var x = document.getElementByName("directions").value;
+            document.getElementById("demo").innerHTML = x;
+        }
+    </script>
     <p id="demo"></p>
 
     <a href="https://qfreeaccountssjc1.az1.qualtrics.com/jfe/form/SV_03tW4SsIAZl57dY"><br>Please provide feedback
         here.</a>
-    <script src="scripts/main.js"></script>
+
 </body>
 
 </html>
