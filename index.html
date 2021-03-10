@@ -15,14 +15,15 @@
     <label for="directions">Input Directions:<br></label>
     <textarea id="directions" name="directions" rows="10" cols="30"> </textarea>
 
-    <button type="button" onclick="myFunction()"> Translate </button>
+    <button type="button" onclick="myFunction()"> <br>Translate </button>
 
     <script>
         function myFunction() {
-            document.getElementById("demo").style.color = "red";
+            var x = document.getElementByName("directions").value;
+            document.getElementByName("directions").value = x;
         }
     </script>
-    <p id="demo">my text color</p>
+    <p id="demo">hi</p>
 
     <a href="https://qfreeaccountssjc1.az1.qualtrics.com/jfe/form/SV_03tW4SsIAZl57dY"><br>Please provide feedback
         here.</a>
