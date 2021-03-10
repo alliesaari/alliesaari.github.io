@@ -5,6 +5,13 @@
     <meta charset="utf-8">
     <title>GatorComm</title>
     <link href="styles/style.css" rel="stylesheet" />
+
+    <script type="text/javascript">
+        function myFunction() {
+            var str = document.getElementById("directions").value;
+            alert(str);
+        }
+    </script>
 </head>
 
 <body>
@@ -14,16 +21,11 @@
 
     <label for="directions">Input Directions:<br></label>
     <textarea id="directions" name="directions" rows="10" cols="30"> </textarea>
+    <br>
+    <button type="button" onclick="myFunction()"> Translate </button>
 
-    <button type="button" onclick="myFunction()"> <br>Translate </button>
 
-    <script>
-        function myFunction() {
-            var x = document.getElementById("directions").value;
-            document.getElementById("demo").value = x;
-        }
-    </script>
-    <p id="demo">hello!</p>
+    <p id="demo">please work</p>
 
     <a href="https://qfreeaccountssjc1.az1.qualtrics.com/jfe/form/SV_03tW4SsIAZl57dY"><br>Please provide feedback
         here.</a>
