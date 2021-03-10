@@ -1,6 +1,6 @@
 
 function translate() {
-    var x = document.getElementById("Input").value;
+    var x = document.getElementByName("directions").value;
 
     document.getElementById("demo").innerHTML = x;
 }
