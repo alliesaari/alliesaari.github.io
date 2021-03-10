@@ -25,13 +25,13 @@ function translateText() {
             'X-ClientTraceId': uuidv4().toString()
         },
         body: [{
-            'text': 'Hello World!'
+            'text': document.getElementById("directions").value,
         }],
         json: true,
     };
 
     request(options, function (err, res, body) {
-        console.log(JSON.stringify(body, null, 4));
+        document.getElementById("output").innerHTML = JSON.stringify(body, null, 4);
     });
 };
 
