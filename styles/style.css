@@ -10,7 +10,9 @@ body {
 h1 {
   color: blue;
   text-shadow: 3px 3px 1px black;
-   padding: 20px 0;
+ padding: 20px 0;
+ font-size: 60px;
+
 }
 img {
   display: block;
