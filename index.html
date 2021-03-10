@@ -13,15 +13,14 @@
     <img src="images/campus.jpg" alt="Image of Campus">
 
     <label for="directions">Input Directions:<br></label>
-    <textarea id="directions" name="directions" rows="20" cols="40"> </textarea>
+    <textarea id="directions" name="directions" rows="10" cols="30"> </textarea>
 
-    <input type="button" onclick="translate()">
-    <br>Translate!!!!!<br>
+    <button type="button" onclick="translatex()">
+        Translate
     </button>
     <script>
-        function translate() {
-            var x = document.getElementById("directions").value;
-            alert(x);
+        function translatex() {
+            var text = document.getElementById("directions").value;
             document.getElementById("demo").innerHTML = x;
         }
     </script>
