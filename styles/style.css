@@ -20,4 +20,5 @@ img {
 }
 textarea {
   resize: none;
+  margin: 0 auto;
 }
