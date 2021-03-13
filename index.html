@@ -2,43 +2,206 @@
 <html>
 
 <head>
+
     <meta charset="utf-8">
     <title>GatorComm</title>
     <link href="styles/style.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+        integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+        crossorigin="anonymous"></script>
 
-    <script type="text/javascript" src="translate.js">
-        function myFunction() {
 
-            translateText()
+    <script type='text/javascript'>
 
+        async function myFunction() {
+            var uuidv4 = 'e7b71c50-2161-4669-ba52-a05200177659'
+            var subscriptionKey = "aa90fdd904904ec6b42e2c621e0e4064";
+            var endpoint = "https://api.cognitive.microsofttranslator.com";
+
+            // Add your location, also known as region. The default is global.
+            // This is required if using a Cognitive Services resource.
+            var location = "eastus2";
+            axios({
+                baseURL: endpoint,
+                url: '/translate',
+                method: 'post',
+                headers: {
+                    'Ocp-Apim-Subscription-Key': subscriptionKey,
+                    'Ocp-Apim-Subscription-Region': location,
+                    'Content-type': 'application/json',
+                    'X-ClientTraceId': uuidv4.toString()
+                },
+                params: {
+                    'api-version': '3.0',
+                    'from': document.getElementById("input").value,
+                    'to': document.getElementById("langauges").value
+                },
+                data: [{
+                    'text': document.getElementById("directions").value
+                }],
+                responseType: 'json'
+            })
+
+                .then(
+                    response => {
+                        document.getElementById("output").innerHTML = response.data[0]["translations"][0]['text'];
+                    });
+
+
+
+        }
+
+
+
+    </script>
+
+    <style>
+        .main {
+            position: relative;
+            height: 500px;
+
+
+            background: url('images/tower.jpg') no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+
+
+        }
+
+        .other {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 500px;
+            height: 460px;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            background-color: #2e5fab;
+            border-radius: 25px;
+
+
+        }
+    </style>
+
+    <script>
+        function myFunction3() {
+            document.getElementById("b1").style.color = "green";
+            document.getElementById("b2").style.color = "black";
+        }
+    </script>
+
+    <script>
+        function myFunction2() {
+            document.getElementById("b2").style.color = "red";
+            document.getElementById("b1").style.color = "black";
         }
     </script>
 
 
-
-    </script>
 </head>
 
 <body>
-    <h1>Gator Communications</h1>
+    <header>
+        <h1>Gator Communications</h1>
+    </header>
+    <div class="main">
 
-    <img src="images/campus.jpg" alt="Image of Campus">
-    <br>
-    <label for="directions">Input Directions:<br></label>
-    <textarea id="directions" name="directions" rows="10" cols="30"> </textarea>
-    <br>
-    <button type="button" onclick="myFunction()"> Translate </button>
-    <br>
-    <br>
-    <label for="output">Translated Directions:<br></label>
-    <br>
-    <textarea id="output" name="output" rows="10" cols="30" readonly></textarea>
-    <h6>How would you rate this translation?</h6>
+        <div class="other">
+            <br>
+            <label for="input">Select Input Language:</label>
+            <select name="input" id="input">
+                <option value="es">Spanish</option>
+                <option value="en">English</option>
+                <option value="ja">Japanese</option>
+                <option value="it">Italian</option>
+                <option value="fr">French</option>
+                <option value="de">German</option>
+                <option value="yue">Cantonese</option>
+                <option value="hi">Hindi</option>
+                <option value="he">Hebrew</option>
+                <option value="sq">Albanian</option>
+            </select>
+            <br>
+            <div class="txtinput">
+                <label for="directions">Input Directions:<br></label>
+            </div>
+
+            <textarea id="directions" name="directions" rows="10" cols="50"> </textarea>
+            <br>
+            <label for="languages">Select Output Language:</label>
+
+            <select name="languages" id="langauges">
+                <option value="es">Spanish</option>
+                <option value="en">English</option>
+                <option value="ja">Japanese</option>
+                <option value="it">Italian</option>
+                <option value="fr">French</option>
+                <option value="de">German</option>
+                <option value="yue">Cantonese</option>
+                <option value="hi">Hindi</option>
+                <option value="he">Hebrew</option>
+                <option value="sq">Albanian</option>
+            </select>
+            <br>
+            <button type="button" onclick=myFunction() style="width:100px;height:30px"> Translate </button>
+            <br>
+            <label for=" output"><br></label>
+            <textarea id="output" name="output" rows="10" cols="50" readonly></textarea>
+        </div>
+    </div>
+
+
+
+
+    <div class="feedback">
+        <h4>Was this translation helpful?</h4>
+        <button type="button" id="b1" onclick=myFunction3() style="width:100px;height:30px"> Yes </button>
+        <button type="button" id="b2" onclick=myFunction2() style="width:100px;height:30px"> No </button>
+    </div>
+
+    <!-- Trigger the Modal -->
+    <img id="myImg" src="images/map.jpg" alt="Map of UF Campus" style="width:100%;max-width:500px">
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+
+    <script>// Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the image and insert it inside the modal - use its "alt" text as a caption
+        var img = document.getElementById("myImg");
+        var modalImg = document.getElementById("img01");
+        var captionText = document.getElementById("caption");
+        img.onclick = function () {
+            modal.style.display = "block";
+            modalImg.src = this.src;
+            captionText.innerHTML = this.alt;
+        }
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }</script>
+
 
 
     <a href="https://qfreeaccountssjc1.az1.qualtrics.com/jfe/form/SV_03tW4SsIAZl57dY"><br>Please provide feedback
         here.</a>
-
 </body>
 
 </html>
